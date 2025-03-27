@@ -1,8 +1,5 @@
-import code
-
-
 class Dog:
-    def __init__(self, name, age, weight):
+    def __init__(self, name, age=0, weight=0):
         self.name = name
         self.age = age
         self.weight = weight
@@ -21,7 +18,12 @@ class Dog:
         return "canine"
 
     def __add__(self, other):
-        return Dog(self.name + "_" + other.name, self.age + other.age, self.weight + other.weight)
+        if type(other) is Dog:
+            return Dog(self.name + "_" + other.name, self.age + other.age, self.weight + other.weight)
+        elif type(other) is int:
+            return self.age + other + self.weight
+        else:
+            return self.age
 
     def __int__(self):
         return int(self.age + self.weight)
@@ -41,8 +43,11 @@ class Dog:
     def __lt__(self, other):
         if self.age < other.age:
             return True
-        else:
-            return False
+        elif self.age == other.age and self.weight < other.weight:
+            return True
+        elif self.age == other.age and self.weight == other.weight and self.name < other.name:
+            return True
+        return False
 
 
 

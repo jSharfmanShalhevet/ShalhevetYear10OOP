@@ -1,12 +1,14 @@
 from Dog import Dog
 
 
+codie = Dog('Codie', 12, 20)
+jackson = Dog('Jackson', 12, 20)
+fred = Dog('Fred', 12, 20)
+zero = Dog('Zero')
 
-codie = Dog('Codie', 12, 38)
-jackson = Dog('Jackson', 10, 18)
-fred = Dog('Fred', 5, 20)
+print(zero)
 
-my_dogs = [codie, jackson, fred]
+my_dogs = [codie, jackson, fred, zero]
 for dog in my_dogs:
     print(dog)
 
